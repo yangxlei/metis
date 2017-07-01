@@ -57,3 +57,6 @@ for (Class<TestAction> clazz : MetisLoader.load(TestAction.class)) {
 2. 应用外通过链接跳转到 app 时， 需要解析 url。 对解析结果的处理也可以通过 metis 做到解耦和
 以及一些其他类似的场景。
 
+
+## 说明
+本工程供学习使用，内部使用的是本地 maven 仓库，并没有提交到 jcenter 和 maven 上。
