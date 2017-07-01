@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+group = 'io.github.yangxlei'
+version = '1.0.0'
+
+jar {
+    manifest {
+        attributes 'Group-Id': project.group
+        attributes 'Artifact-Id': "metis-${project.name}"
+        attributes 'Version': project.version
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+            pom.project {
+                groupId project.group
+                artifactId "metis-${project.name}"
+                version project.version
+                description project.description ?: ''
+            }
+        }
+    }
+}

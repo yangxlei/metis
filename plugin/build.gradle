@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+
+    maven {
+        url uri('../repo')
+    }
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    compile 'org.javassist:javassist:3.18.2-GA'
+    compile 'com.squareup:javapoet:1.7.0'
+
+    compile 'io.github.yangxlei:metis-loader:1.0.0'
+    compile 'com.android.tools.build:gradle:2.3.0'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+group='io.github.yangxlei'
+version='1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+            pom.project {
+                groupId project.group
+                artifactId "metis"
+                version project.version
+                description project.description ?: ''
+            }
+        }
+    }
+}
+
