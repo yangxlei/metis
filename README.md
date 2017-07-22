@@ -60,3 +60,6 @@ for (Class<TestAction> clazz : MetisLoader.load(TestAction.class)) {
 
 ## 说明
 本工程供学习使用，内部使用的是本地 maven 仓库，并没有提交到 jcenter 和 maven 上。
+
+# CHANGELOG
+使用 Transfrom Api 重新实现插件, 支持 Instant Run
