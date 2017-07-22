@@ -19,7 +19,7 @@ dependencies {
 
     compile 'org.javassist:javassist:3.18.2-GA'
     compile 'com.squareup:javapoet:1.7.0'
-
+    compile 'com.google.code.gson:gson:2.8.1'
     compile 'io.github.yangxlei:metis-loader:1.0.0'
     compile 'com.android.tools.build:gradle:2.3.0'
 }
