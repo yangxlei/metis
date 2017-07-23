@@ -102,9 +102,11 @@ public class MetisAction {
 
     public void loadChangedFiles(Map<File, Status> changedFile) {
         changedFile.keySet().each { file ->
-            mProject.logger.info("scan file:\t ${file}")
+            mProject.logger.info("scan file:\t ${file} status:${changedFile.get(file)}")
             FileInputStream inputStream = new FileInputStream(file)
-            anaylizeClass(mPool.makeClass(inputStream))
+            CtClass ctClass = mPool.makeClass(inputStream)
+            removeOldValue(ctClass.name)
+            anaylizeClass(ctClass)
         }
     }
 
